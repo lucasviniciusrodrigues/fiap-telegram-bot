@@ -1,20 +1,16 @@
-import infrastructure.service.TelegramBotService;
-
-import java.io.InputStream;
-import java.util.Properties;
+import adapter.infrastructure.service.TelegramBotService;
+import config.TelegramBotInitializer;
 
 public class Application {
 
     public static void main(String[] args) {
 
-        try(InputStream input = Application.class.getClassLoader().getResourceAsStream("application.properties")) {
+        try {
 
-            Properties properties = new Properties();
-            properties.load(input);
-
-            TelegramBotService telegramBotService = new TelegramBotService(properties.getProperty("telegram-token-access"));
+            TelegramBotService telegramBotService = TelegramBotInitializer.initialize();
 
             while (true) {
+                Thread.sleep(3000);
                 telegramBotService.exec();
             }
 
