@@ -12,10 +12,10 @@ public class Application {
             Properties properties = new Properties();
             properties.load(input);
 
-            TelegramBotService telegramBotRepository = new TelegramBotService(properties.getProperty("telegram-token-access"));
+            TelegramBotService telegramBotService = new TelegramBotService(properties.getProperty("telegram-token-access"));
 
             while (true) {
-                telegramBotRepository.exec();
+                telegramBotService.exec();
             }
 
         } catch (Exception e) {
