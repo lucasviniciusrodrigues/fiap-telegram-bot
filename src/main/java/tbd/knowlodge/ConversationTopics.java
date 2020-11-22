@@ -1,5 +1,8 @@
 package tbd.knowlodge;
 
+import adapter.infrastructure.models.WeatherForecast;
+import adapter.infrastructure.models.WeatherResponse;
+import adapter.infrastructure.service.WeatherService;
 import tbd.knowlodge.base.BaseConversationTopics;
 
 public enum ConversationTopics implements BaseConversationTopics {
@@ -8,7 +11,7 @@ public enum ConversationTopics implements BaseConversationTopics {
         @Override
         public String askConfirmation() {
             setActiveContext(FIRST_CONTACT);
-            return "Os assuntos que estou estudando são: 1, 2 e 3\nQuer conversar sobre alguma dessas coisas? Caso queira, me fala o assunto ou envia a palavra tema que eu repito novamente a qualquer momento";
+            return "Os assuntos que estou estudando são: Clima, 2 e 3\nQuer conversar sobre alguma dessas coisas? Caso queira, me fala o assunto ou envia a palavra tema que eu repito novamente a qualquer momento";
         }
 
         @Override
@@ -35,7 +38,7 @@ public enum ConversationTopics implements BaseConversationTopics {
     CLIMA {
         @Override
         public String askConfirmation() {
-            return "Você quer falar sobre o clima?";
+            return "Para saber o clima da sua cidade...\nDigite o nome da cidade seguido da UF separados por vírgula\nExemplo: Campinas,SP";
         }
 
         @Override
@@ -43,11 +46,22 @@ public enum ConversationTopics implements BaseConversationTopics {
 
             String response = "";
 
-            if(AFFIRMATIVE.matcher(answer).matches())
-                response = "Clima sim";
-
             if(NEGATIVE.matcher(answer).matches())
-                response = "Clima não";
+                response = "Tudo bem, sem problemas ;)";
+            
+            if(REQUEST_WEATHER.matcher(answer).matches()) {
+            	WeatherService clima = new WeatherService();
+            	WeatherResponse weather = clima.getCityWeather(answer);
+            	
+            	if (weather == null)
+            		return  "Desculpe, não consegui consultar a previsão para a cidade " + answer;
+            	
+            	response = weather.city_name;
+            	for (WeatherForecast forecast : weather.forecast) {
+            		response += String.format("\nData: %s - %s\nmínima de %s˚ e máxima de %s˚\n", forecast.date, forecast.description, forecast.min, forecast.max);  
+            	}
+            }
+            	
 
             if(!response.isEmpty()){
                 setActiveContext(FIRST_CONTACT);
@@ -57,7 +71,7 @@ public enum ConversationTopics implements BaseConversationTopics {
             throw new Exception();
         }
     },
-
+    
     TEMA {
         @Override
         public String askConfirmation() {

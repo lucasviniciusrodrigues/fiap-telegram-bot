@@ -27,15 +27,16 @@ public class TelegramBotService {
             if(offset == 0 && !updates.isEmpty())
                 sendMessage(updates.get(0), tbd.salute());
             else
-                for(Update update : updates)
-                    sendMessage(update, tbd.getAnswer(update.message().text()));
+            	if (updates != null)
+            		for(Update update : updates)
+            			sendMessage(update, tbd.getAnswer(update.message().text()));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void sendMessage(Update update, String message) {
+    private void sendMessage(Update update, String message) {    	
         this.offset = update.updateId() + 1;
         telegramBotRepository.sendTypingSignal(update);
         telegramBotRepository.sendMessage(update, message);
