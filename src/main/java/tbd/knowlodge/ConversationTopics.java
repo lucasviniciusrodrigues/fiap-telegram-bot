@@ -56,7 +56,7 @@ public enum ConversationTopics implements BaseConversationTopics {
             	if (weather == null)
             		return  "Desculpe, não consegui consultar a previsão para a cidade " + answer;
             	
-            	response = weather.city_name;
+            	response = weather.city;
             	for (WeatherForecast forecast : weather.forecast) {
             		response += String.format("\nData: %s - %s\nmínima de %s˚ e máxima de %s˚\n", forecast.date, forecast.description, forecast.min, forecast.max);  
             	}
