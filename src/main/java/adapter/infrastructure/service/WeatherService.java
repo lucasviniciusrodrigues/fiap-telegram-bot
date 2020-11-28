@@ -4,17 +4,18 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import com.google.gson.Gson;
-
 import adapter.infrastructure.models.WeatherResponse;
+import config.ResourceManager;
 
 
 public class WeatherService {
 	
 	public WeatherResponse getCityWeather(String cityName) throws Exception {
+		URL url = new URL(ResourceManager.readProperty("weather-url") + URLEncoder.encode(cityName, StandardCharsets.UTF_8));
 		
-		URL url = new URL("https://api.hgbrasil.com/weather?fields=only_results,temp,city_name,description,forecast,max,min,date,description&key=96e37c95&city_name=" + cityName);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		
 		conn.setRequestMethod("GET");
