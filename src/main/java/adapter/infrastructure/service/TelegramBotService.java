@@ -2,19 +2,19 @@ package adapter.infrastructure.service;
 
 import adapter.infrastructure.repository.TelegramBotRepository;
 import com.pengrad.telegrambot.model.Update;
-import tbd.Tbd;
+import domain.usecase.ConversationUseCase;
 
 import java.util.List;
 
 public class TelegramBotService {
 
     TelegramBotRepository telegramBotRepository;
-    Tbd tbd;
+    ConversationUseCase tbd;
     int offset;
 
     public TelegramBotService(String telegramToken){
         telegramBotRepository = new TelegramBotRepository(telegramToken);
-        tbd = new Tbd();
+        tbd = new ConversationUseCase();
         offset = 0;
     }
 

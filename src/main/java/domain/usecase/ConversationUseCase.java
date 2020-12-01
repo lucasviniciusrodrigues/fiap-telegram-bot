@@ -1,9 +1,9 @@
-package tbd;
+package domain.usecase;
 
 import com.google.common.base.Enums;
-import tbd.knowlodge.ConversationTopics;
+import domain.knowledge.ConversationTopics;
 
-public class Tbd {
+public class ConversationUseCase {
 
     ConversationTopics conversationTopics;
 

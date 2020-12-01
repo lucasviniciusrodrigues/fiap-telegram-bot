@@ -1,4 +1,4 @@
-package tbd.knowlodge.base;
+package domain.knowledge.base;
 
 import java.util.regex.Pattern;
 

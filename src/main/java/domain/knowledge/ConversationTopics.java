@@ -1,9 +1,9 @@
-package tbd.knowlodge;
+package domain.knowledge;
 
 import adapter.infrastructure.models.WeatherForecast;
 import adapter.infrastructure.models.WeatherResponse;
 import adapter.infrastructure.service.WeatherService;
-import tbd.knowlodge.base.BaseConversationTopics;
+import domain.knowledge.base.BaseConversationTopics;
 
 public enum ConversationTopics implements BaseConversationTopics {
 
