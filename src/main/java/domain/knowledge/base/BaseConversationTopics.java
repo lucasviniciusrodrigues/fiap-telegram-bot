@@ -3,6 +3,7 @@ package domain.knowledge.base;
 import java.util.regex.Pattern;
 
 public interface BaseConversationTopics {
+
     public String askConfirmation();
     public String checkAnswer(String answer) throws Exception;
 
