@@ -1,0 +1,8 @@
+unnamed package
+adapter.infrastructure.models
+adapter.infrastructure.repository
+adapter.infrastructure.service
+config
+domain.knowledge
+domain.knowledge.base
+domain.usecase

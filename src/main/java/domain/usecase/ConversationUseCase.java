@@ -12,6 +12,7 @@ public class ConversationUseCase {
         return "Olá, eu sou o Scoobot\n" + conversationTopics.askConfirmation();
     }
 
+
     public String getAnswer(String receveidMessage) throws Exception {
         try {
             String response = "";
