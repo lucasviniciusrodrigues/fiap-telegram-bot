@@ -24,7 +24,7 @@ public enum ConversationTopics implements BaseConversationTopics {
         @Override
         public String askConfirmation() {
             setActiveContext(FIRST_CONTACT);
-            return "Os assuntos que estou estudando são: Clima, data, hora e se estiver com fome digite fome \nQuer conversar sobre alguma dessas coisas? Caso queira, me fala o assunto ou envia a palavra tema que eu repito novamente a qualquer momento";return "Os assuntos que estou estudando são: Clima, data e 3\nQuer conversar sobre alguma dessas coisas? Caso queira, me fala o assunto ou envia a palavra tema que eu repito novamente a qualquer momento";
+            return "Os assuntos que estou estudando são: Clima, data, hora e se estiver com fome digite fome \nQuer conversar sobre alguma dessas coisas? Caso queira, me fala o assunto ou envia a palavra tema que eu repito novamente a qualquer momento";
         }
 
         @Override

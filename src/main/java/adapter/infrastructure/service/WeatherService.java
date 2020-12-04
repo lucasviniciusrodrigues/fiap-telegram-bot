@@ -21,8 +21,8 @@ import config.ResourceManager;
 public class WeatherService {
 	
 	public WeatherResponse getCityWeather(String cityName) throws Exception {
-		URL url = new URL(ResourceManager.readProperty("weather-url") + URLEncoder.encode(cityName, StandardCharsets.UTF_8));
-		
+		//URL url = new URL(ResourceManager.readProperty("weather-url") + URLEncoder.encode(cityName, StandardCharsets.UTF_8));
+		URL url = new URL(ResourceManager.readProperty("weather-url") + URLEncoder.encode(cityName));
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		
 		conn.setRequestMethod("GET");
