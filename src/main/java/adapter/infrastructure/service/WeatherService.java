@@ -10,6 +10,13 @@ import com.google.gson.Gson;
 import adapter.infrastructure.models.WeatherResponse;
 import config.ResourceManager;
 
+/**
+ * Metodo utilizado para consultar a temperatura de uma cidade fornecida pelo usuário
+ *
+ * @param citiName - Cidade fornecida pelo usuário
+ * @param weather-url Parametro para utilização da api.hgbrasil para retornar as informações sobre o clima
+ * @author Marcio Campos
+ */
 
 public class WeatherService {
 	

@@ -10,6 +10,14 @@ import com.pengrad.telegrambot.response.GetUpdatesResponse;
 
 import java.util.List;
 
+/**
+ *Classe utilizada para iniciar o dialogo com o cliente
+ *Responsável por receber os upadtes do usário e enviar as respostas
+ * @param getMessage usado para pegar a resposta do usuário
+ * TelegramBotRepository para pegar a configuração de token do bot no telegram
+ * @author Lucas Vinicius
+ */
+
 public class TelegramBotRepository {
 
     TelegramBot telegramBot;

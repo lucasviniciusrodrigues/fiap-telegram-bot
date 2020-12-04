@@ -9,13 +9,22 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.regex.Pattern;
 
+/**
+ * Metodo de conversação com o usário se basenado na resposta em caso de resposta afirmativa ou negativa
+ * As respostas são enviadas para a clase baseConversationTopics.java e comparadas
+ *
+ * @param askConfirmation - Inicia a conversa baseado no tema escolhido
+ * @param checkAnswer - Recebe a resposta do usuário para fazer a comparação
+ * @author Lucas Candalo, Marcios Campos, Rafael Martins
+ */
+
 public enum ConversationTopics implements BaseConversationTopics {
 
     FIRST_CONTACT {
         @Override
         public String askConfirmation() {
             setActiveContext(FIRST_CONTACT);
-            return "Os assuntos que estou estudando sÃ£o: Clima, data e 3\nQuer conversar sobre alguma dessas coisas? Caso queira, me fala o assunto ou envia a palavra tema que eu repito novamente a qualquer momento";
+            return "Os assuntos que estou estudando sÃ£o: Clima, data, hora e se estiver com fome digite fome \nQuer conversar sobre alguma dessas coisas? Caso queira, me fala o assunto ou envia a palavra tema que eu repito novamente a qualquer momento";return "Os assuntos que estou estudando sÃ£o: Clima, data e 3\nQuer conversar sobre alguma dessas coisas? Caso queira, me fala o assunto ou envia a palavra tema que eu repito novamente a qualquer momento";
         }
 
         @Override
@@ -131,7 +140,63 @@ public enum ConversationTopics implements BaseConversationTopics {
             throw new Exception();
         }
 
-    };
+    },
+  HORA {
+    	
+    	private final SimpleDateFormat formatter = new SimpleDateFormat("hh:mm:ss");
+        @Override
+        public String askConfirmation() {
+            return "Você quer saber a hora atual?";
+        }
+
+        @Override
+        public String checkAnswer(String answer) throws Exception {
+        	String date;
+            String response = "";
+
+            if(AFFIRMATIVE.matcher(answer).matches())
+                response = formatter.format(Calendar.getInstance().getTime());
+ 
+            if(NEGATIVE.matcher(answer).matches())
+                response = "Sem problemas";
+            
+            if(!response.isEmpty()){
+                setActiveContext(FIRST_CONTACT);
+                return response;
+            }
+
+            return "";
+        }
+    },
+    
+ FOME {
+        @Override
+        public String askConfirmation() {
+            return "Você está com fome ?";
+        }
+
+        @Override
+        public String checkAnswer(String answer) throws Exception {
+            String response = "";
+
+            if(AFFIRMATIVE.matcher(answer).matches())
+                response = "Tenho algumas sugestões, quer ver ?";
+                
+            if(AFFIRMATIVE.matcher(answer).matches())
+            	 response = "Tenho algumas opções, por exemplo acesse e baixe o app para Android https://play.google.com/store/apps/details?id=br.com.brainweb.ifood&hl=pt_BR&gl=US";
+            
+            if(NEGATIVE.matcher(answer).matches())
+                response = "Sem problemas";
+            
+            if(!response.isEmpty()){
+                setActiveContext(FIRST_CONTACT);
+                return response;
+            }
+
+            return "";
+        }
+    },
+ ;
 
     private ConversationTopics activeContext;
 
