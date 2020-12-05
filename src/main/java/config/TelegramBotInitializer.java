@@ -5,14 +5,16 @@ import adapter.infrastructure.service.TelegramBotService;
 import java.io.IOException;
 
 /**
- * Classe para incializar o telegrambot passando como parÍmetro o token fornecido no arquivo application.properties
- *
- * @param telegram-token-access - Token de ativaÁ„o do bot
+ * Classe para incializar o telegrambot passando como par√¢metro o token fornecido no arquivo application.properties
  * @author Lucas Vinicius, Marcios Campos, Rafael Martins
  */
 
 public class TelegramBotInitializer {
-
+    /**
+     * M√©todo que inicializa o Bot
+     * @return Nova inst√¢ncia do servi√ßo de Bot
+     * @throws IOException Erro ao ler o arquivo de propriedades e ao inicializar o Bot
+     */
     public static TelegramBotService initialize() throws IOException {
         try {
             return new TelegramBotService(ResourceManager.readProperty("telegram-token-access"));

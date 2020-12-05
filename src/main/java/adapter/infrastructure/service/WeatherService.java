@@ -19,7 +19,7 @@ public class WeatherService {
 /**
  * Metodo utilizado para consultar a temperatura de uma cidade fornecida pelo usuário
  *
- * @param citiName - Nome da cidade fornecida pelo usuário
+ * @param cityName - Nome da cidade fornecida pelo usuário
  * @return Objeto WeatherResponse preenchido com as informações sobre o clima
  * @author Marcio Campos
  */
@@ -48,5 +48,4 @@ public class WeatherService {
 		
 		return weatherResponse;
 	}
-
 }

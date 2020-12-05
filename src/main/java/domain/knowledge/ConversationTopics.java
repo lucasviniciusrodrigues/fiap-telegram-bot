@@ -12,9 +12,6 @@ import java.util.regex.Pattern;
 /**
  * Metodo de conversação com o usuário se basenado na resposta em caso de resposta afirmativa ou negativa
  * As respostas são enviadas para a clase baseConversationTopics.java e comparadas
- *
- * @param askConfirmation - Inicia a conversa baseado no tema escolhido
- * @param checkAnswer - Recebe a resposta do usuário para fazer a comparação
  * @author Lucas Vinicius, Marcio Campos, Rafael Martins
  */
 
@@ -171,7 +168,7 @@ public enum ConversationTopics implements BaseConversationTopics {
  FOME {
         @Override
         public String askConfirmation() {
-            return "Voc� est� com fome ?";
+            return "Você está com fome ?";
         }
 
         @Override
@@ -179,10 +176,10 @@ public enum ConversationTopics implements BaseConversationTopics {
             String response = "";
 
             if(AFFIRMATIVE.matcher(answer).matches())
-                response = "Tenho algumas sugest�es, quer ver ?";
+                response = "Tenho algumas sugestões, quer ver ?";
                 
             if(AFFIRMATIVE.matcher(answer).matches())
-            	 response = "Tenho algumas op��es, por exemplo acesse e baixe o app para Android https://play.google.com/store/apps/details?id=br.com.brainweb.ifood&hl=pt_BR&gl=US";
+            	 response = "Tenho algumas opções, por exemplo acesse e baixe o app para Android https://play.google.com/store/apps/details?id=br.com.brainweb.ifood&hl=pt_BR&gl=US";
             
             if(NEGATIVE.matcher(answer).matches())
                 response = "Sem problemas";

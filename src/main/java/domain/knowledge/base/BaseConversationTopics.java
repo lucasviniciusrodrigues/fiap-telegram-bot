@@ -9,7 +9,16 @@ import java.util.regex.Pattern;
 
 public interface BaseConversationTopics {
 
+    /**
+     * Método que inicia uma conversa com o usuário
+     * @return Texto de inicio do tópico da conversa
+     */
     public String askConfirmation();
+    /**
+     * Método que checa a resposta enviada pelo usuário
+     * @param answer Texto de resposta enviada pelo usuário
+     * @return Texto de resposta do Bot de acordo com o que foi enviado pelo usuário
+     */
     public String checkAnswer(String answer) throws Exception;
 
     public static final Pattern AFFIRMATIVE = Pattern.compile(".*(SIM|YES|VAMOS|BORA).*");

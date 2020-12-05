@@ -13,8 +13,6 @@ import java.util.List;
 /**
  * Classe utilizada para iniciar o dialogo com o cliente
  * Responsável por receber os updates do usuário e enviar as respostas
- * @param getMessage usado para pegar a resposta do usuário
- * TelegramBotRepository para pegar a configuração de token do bot no telegram
  * @author Lucas Vinicius
  */
 
