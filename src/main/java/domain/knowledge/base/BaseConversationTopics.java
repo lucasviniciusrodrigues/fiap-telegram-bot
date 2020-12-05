@@ -2,6 +2,11 @@ package domain.knowledge.base;
 
 import java.util.regex.Pattern;
 
+/**
+ * Interface base para criação das conversas
+ * @author Lucas Candalo
+ */
+
 public interface BaseConversationTopics {
 
     public String askConfirmation();

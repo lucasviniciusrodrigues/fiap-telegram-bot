@@ -10,12 +10,12 @@ import java.util.Calendar;
 import java.util.regex.Pattern;
 
 /**
- * Metodo de conversação com o usário se basenado na resposta em caso de resposta afirmativa ou negativa
- * As respostas são enviadas para a clase baseConversationTopics.java e comparadas
+ * Metodo de conversaÃ§Ã£o com o usuÃ¡rio se basenado na resposta em caso de resposta afirmativa ou negativa
+ * As respostas sÃ£o enviadas para a clase baseConversationTopics.java e comparadas
  *
  * @param askConfirmation - Inicia a conversa baseado no tema escolhido
- * @param checkAnswer - Recebe a resposta do usuário para fazer a comparação
- * @author Lucas Candalo, Marcios Campos, Rafael Martins
+ * @param checkAnswer - Recebe a resposta do usuÃ¡rio para fazer a comparaÃ§Ã£o
+ * @author Lucas Vinicius, Marcio Campos, Rafael Martins
  */
 
 public enum ConversationTopics implements BaseConversationTopics {
@@ -101,7 +101,6 @@ public enum ConversationTopics implements BaseConversationTopics {
             		response += String.format("\nData: %s - %s\nmÃ­nima de %sËš e mÃ¡xima de %sËš\n", forecast.date, forecast.description, forecast.min, forecast.max);  
             	}
             }
-            	
 
             if(!response.isEmpty()){
                 setActiveContext(FIRST_CONTACT);
@@ -146,7 +145,7 @@ public enum ConversationTopics implements BaseConversationTopics {
     	private final SimpleDateFormat formatter = new SimpleDateFormat("hh:mm:ss");
         @Override
         public String askConfirmation() {
-            return "Você quer saber a hora atual?";
+            return "Vocï¿½ quer saber a hora atual?";
         }
 
         @Override
@@ -172,7 +171,7 @@ public enum ConversationTopics implements BaseConversationTopics {
  FOME {
         @Override
         public String askConfirmation() {
-            return "Você está com fome ?";
+            return "Vocï¿½ estï¿½ com fome ?";
         }
 
         @Override
@@ -180,10 +179,10 @@ public enum ConversationTopics implements BaseConversationTopics {
             String response = "";
 
             if(AFFIRMATIVE.matcher(answer).matches())
-                response = "Tenho algumas sugestões, quer ver ?";
+                response = "Tenho algumas sugestï¿½es, quer ver ?";
                 
             if(AFFIRMATIVE.matcher(answer).matches())
-            	 response = "Tenho algumas opções, por exemplo acesse e baixe o app para Android https://play.google.com/store/apps/details?id=br.com.brainweb.ifood&hl=pt_BR&gl=US";
+            	 response = "Tenho algumas opï¿½ï¿½es, por exemplo acesse e baixe o app para Android https://play.google.com/store/apps/details?id=br.com.brainweb.ifood&hl=pt_BR&gl=US";
             
             if(NEGATIVE.matcher(answer).matches())
                 response = "Sem problemas";

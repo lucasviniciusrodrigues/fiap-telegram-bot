@@ -11,18 +11,20 @@ import adapter.infrastructure.models.WeatherResponse;
 import config.ResourceManager;
 
 /**
- * Metodo utilizado para consultar a temperatura de uma cidade fornecida pelo usu·rio
- *
- * @param citiName - Cidade fornecida pelo usu·rio
- * @param weather-url Parametro para utilizaÁ„o da api.hgbrasil para retornar as informaÁıes sobre o clima
+ * Classe para utiliza√ß√£o da api.hgbrasil para retornar as informa√ß√µes sobre o clima
  * @author Marcio Campos
  */
-
 public class WeatherService {
-	
+
+/**
+ * Metodo utilizado para consultar a temperatura de uma cidade fornecida pelo usu√°rio
+ *
+ * @param citiName - Nome da cidade fornecida pelo usu√°rio
+ * @return Objeto WeatherResponse preenchido com as informa√ß√µes sobre o clima
+ * @author Marcio Campos
+ */
 	public WeatherResponse getCityWeather(String cityName) throws Exception {
-		//URL url = new URL(ResourceManager.readProperty("weather-url") + URLEncoder.encode(cityName, StandardCharsets.UTF_8));
-		URL url = new URL(ResourceManager.readProperty("weather-url") + URLEncoder.encode(cityName));
+		URL url = new URL(ResourceManager.readProperty("weather-url") + URLEncoder.encode(cityName, StandardCharsets.UTF_8));
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		
 		conn.setRequestMethod("GET");

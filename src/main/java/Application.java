@@ -1,17 +1,15 @@
 import adapter.infrastructure.service.TelegramBotService;
 import config.TelegramBotInitializer;
 
-/*Classe para startar o serviço do Telegram
- *O while é executado a cada 3 segundos mantendo o serviço no AR
- *@author Lucas Vinicius
+/**
+ * Classe para startar o serviï¿½o do Telegram
+ * O while Ã© executado a cada 3 segundos mantendo o serviÃ§o no AR
+ * @author Lucas Vinicius
 */
 
 public class Application {
-
     public static void main(String[] args) {
-
         try {
-
             TelegramBotService telegramBotService = TelegramBotInitializer.initialize();
 
             while (true) {
