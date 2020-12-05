@@ -10,12 +10,21 @@ import com.google.gson.Gson;
 import adapter.infrastructure.models.WeatherResponse;
 import config.ResourceManager;
 
-
+/**
+ * Classe para utilização da api.hgbrasil para retornar as informações sobre o clima
+ * @author Marcio Campos
+ */
 public class WeatherService {
-	
+
+/**
+ * Metodo utilizado para consultar a temperatura de uma cidade fornecida pelo usuário
+ *
+ * @param cityName - Nome da cidade fornecida pelo usuário
+ * @return Objeto WeatherResponse preenchido com as informações sobre o clima
+ * @author Marcio Campos
+ */
 	public WeatherResponse getCityWeather(String cityName) throws Exception {
 		URL url = new URL(ResourceManager.readProperty("weather-url") + URLEncoder.encode(cityName, StandardCharsets.UTF_8));
-		
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		
 		conn.setRequestMethod("GET");
@@ -39,5 +48,4 @@ public class WeatherService {
 		
 		return weatherResponse;
 	}
-
 }
