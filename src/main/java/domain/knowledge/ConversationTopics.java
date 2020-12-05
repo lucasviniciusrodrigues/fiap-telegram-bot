@@ -174,9 +174,6 @@ public enum ConversationTopics implements BaseConversationTopics {
         @Override
         public String checkAnswer(String answer) throws Exception {
             String response = "";
-
-            if(AFFIRMATIVE.matcher(answer).matches())
-                response = "Tenho algumas sugestões, quer ver ?";
                 
             if(AFFIRMATIVE.matcher(answer).matches())
             	 response = "Tenho algumas opções, por exemplo acesse e baixe o app para Android https://play.google.com/store/apps/details?id=br.com.brainweb.ifood&hl=pt_BR&gl=US";
