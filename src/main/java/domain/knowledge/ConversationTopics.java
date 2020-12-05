@@ -7,7 +7,6 @@ import domain.knowledge.base.BaseConversationTopics;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.regex.Pattern;
 
 /**
  * Metodo de conversação com o usuário se basenado na resposta em caso de resposta afirmativa ou negativa
@@ -57,7 +56,7 @@ public enum ConversationTopics implements BaseConversationTopics {
             String response = "";
 
             if(AFFIRMATIVE.matcher(answer).matches())
-                response = "Consigo falar sobre: Clima, data e 3. Me fala sobre o que você quer falar";
+                response = "Consigo falar sobre: Clima, data e hora e se estiver com fome digite fome. Me fala sobre o que você quer falar";
 
             if(NEGATIVE.matcher(answer).matches())
                 response = "Há, então tudo bem =D";
